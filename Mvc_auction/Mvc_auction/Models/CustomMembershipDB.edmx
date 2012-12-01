@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Mvc_auction.Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Mvc_auctionModelsStoreContainer">
+          <EntitySet Name="Users" EntityType="Mvc_auction.Models.Store.Users" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="mail" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="120" />
+          <Property Name="passwordSalt" Type="nvarchar" Nullable="false" MaxLength="120" />
+          <Property Name="userName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifyedDate" Type="datetime" />
+          <Property Name="newMail" Type="varchar" MaxLength="50" />
+          <Property Name="isActivated" Type="bit" />
+          <Property Name="isLockedOut" Type="bit" />
+          <Property Name="lastLockedOutDate" Type="datetime" />
+          <Property Name="lastLoginDate" Type="datetime" />
+          <Property Name="comments" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Mvc_auction.Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CustomMembershipDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="Mvc_auction.Models.User" />
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="passwordSalt" Type="String" Nullable="false" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="createdDate" Type="DateTime" />
+          <Property Name="modifyedDate" Type="DateTime" />
+          <Property Name="newMail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="isActivated" Type="Boolean" />
+          <Property Name="isLockedOut" Type="Boolean" />
+          <Property Name="lastLockedOutDate" Type="DateTime" />
+          <Property Name="lastLoginDate" Type="DateTime" />
+          <Property Name="comments" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Mvc_auctionModelsStoreContainer" CdmEntityContainer="CustomMembershipDB">
+          <EntitySetMapping Name="Users"><EntityTypeMapping TypeName="Mvc_auction.Models.User"><MappingFragment StoreEntitySet="Users">
+            <ScalarProperty Name="user_id" ColumnName="user_id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="lastName" ColumnName="lastName" />
+            <ScalarProperty Name="mail" ColumnName="mail" />
+            <ScalarProperty Name="password" ColumnName="password" />
+            <ScalarProperty Name="passwordSalt" ColumnName="passwordSalt" />
+            <ScalarProperty Name="userName" ColumnName="userName" />
+            <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+            <ScalarProperty Name="modifyedDate" ColumnName="modifyedDate" />
+            <ScalarProperty Name="newMail" ColumnName="newMail" />
+            <ScalarProperty Name="isActivated" ColumnName="isActivated" />
+            <ScalarProperty Name="isLockedOut" ColumnName="isLockedOut" />
+            <ScalarProperty Name="lastLockedOutDate" ColumnName="lastLockedOutDate" />
+            <ScalarProperty Name="lastLoginDate" ColumnName="lastLoginDate" />
+            <ScalarProperty Name="comments" ColumnName="comments" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CustomMembershipDB">
+        <EntityTypeShape EntityType="Mvc_auction.Models.User" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
